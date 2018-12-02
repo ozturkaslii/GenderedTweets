@@ -1,5 +1,28 @@
-<htm>
-    <body>
-        <p>Hello world!</p>
-    </body>
-</htm>
+{% extends 'GenderedTweetsUI/base.html' %}
+
+{% block body %}
+
+    <div class="container" id="mainContainer">
+        <div class="row">
+            <div id="mainForm" class="col-md-3">
+                <form >
+                    <div class="form-group">
+                        <label id="l_startDate">Start Date: </label>
+                        <input id="inp_startDate"  class="datepicker" class="form-control" required/>
+                    </div>
+                    <div class="form-group">
+                        <label id="l_endDate">End Date: </label>
+                        <input id="inp_endDate" class="datepicker" class="form-control" required/>
+                    </div>
+                    <button type="submit" class="btn btn-danger pull-right" id="btnSubmit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+<script type="application/javascript">
+    $('.datepicker').datepicker();
+</script>
+
+{% endblock %}
