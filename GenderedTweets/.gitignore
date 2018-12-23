@@ -10,3 +10,4 @@ __pycache__/
 /static
 lib/
 lib64/
+config.py

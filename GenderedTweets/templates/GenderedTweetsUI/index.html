@@ -20,6 +20,12 @@
         </div>
     </div>
 
+    <ul>
+        {% for tweet in object_list %}
+            <li>{{ tweet.text }}</li>
+        {% endfor %}
+    </ul>
+
 
 <script type="application/javascript">
     $('.datepicker').datepicker();
