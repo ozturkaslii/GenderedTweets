@@ -5,30 +5,41 @@
     <div class="container" id="mainContainer">
         <div class="row">
             <div id="mainForm" class="col-md-3">
-                <form >
-                    <div class="form-group">
+                <form>
+                    <div class="form-group col-md-12">
                         <label id="l_startDate">Start Date: </label>
-                        <input id="inp_startDate"  class="datepicker" class="form-control" required/>
+                        <input id="inp_startDate" class="datepicker" class="form-control" required/>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-md-12">
                         <label id="l_endDate">End Date: </label>
                         <input id="inp_endDate" class="datepicker" class="form-control" required/>
                     </div>
-                    <button type="submit" class="btn btn-danger pull-right" id="btnSubmit">Submit</button>
+                    <div class="form-group col-md-9">
+                        <button type="submit" class="btn btn-danger pull-right" id="btnSubmit">Submit</button>
+                    </div>
+
                 </form>
+            </div>
+            {#            <div class="col-md-9">#}
+            {#                <ul id="home_tweets">#}
+            {##}
+            {#                    {% for tweet in tweets.tweets %}#}
+            {#                    <li>{{ tweet.status }}</li>#}
+            {#                    {% endfor %}#}
+            {##}
+            {#                </ul>#}
+            {#            </div>#}
+            <div class="col-md-9">
+                {% block bar %}
+                    {% include "GenderedTweetsUI/barChart.html" %}
+                {% endblock %}
             </div>
         </div>
     </div>
 
-    <ul>
-        {% for tweet in object_list %}
-            <li>{{ tweet.text }}</li>
-        {% endfor %}
-    </ul>
 
-
-<script type="application/javascript">
-    $('.datepicker').datepicker();
-</script>
+    <script type="application/javascript">
+        $('.datepicker').datepicker();
+    </script>
 
 {% endblock %}

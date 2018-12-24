@@ -1,0 +1,72 @@
+<script>
+{% block jquery %}
+    let endpoint = 'barchart'
+        let default_data = []
+        let labels = []
+
+        $.ajax({
+            method: "GET",
+            url: endpoint,
+            success: function (data) {
+                labels = data.labels
+                default_data = data.default
+                setChart()
+            },
+            error: function (error_data) {
+                console.log("error")
+                console.log(error_data)
+            }
+        })
+
+        function setChart() {
+            var ctx = document.getElementById("frequencyChart");
+            var frequencyChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Frequency of Top 5 Sexist Keywords',
+                        data: default_data,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255,99,132,1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+
+                    }],
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            })
+        }
+{% endblock %}
+</script>
+
+{% block content %}
+
+<div class='row'>
+    <div class='col-sm-12' url-endpoint = '{% url "barchart" %}' style="left:60px; width:500px; height:500px;">
+        <canvas id="frequencyChart" width="400" height="400"></canvas>
+    </div>
+</div>
+
+{% endblock content %}

@@ -14,6 +14,7 @@ class TwitterStreamer:
         api = tweepy.API(auth)
         start_date = date.today() - timedelta(2)
         end_date = date.today() - timedelta(1)
+        output = []
 
         hash_tag_list = ["woman", "man", "bitch", "skinny", "whore", "slut", "hoe", "pussy", "nipple", "ass",
                          "chick", "naked", "boobs", "motherfucker"]
@@ -38,6 +39,7 @@ class TwitterStreamer:
                     tweet_data.append(tweet.author.name)
                     tweet_data.append(tweet.author.screen_name)
                     tweet_data.append(tweet.author.location)
+                    output.append(tweet_data)
 
                     cur.execute("""INSERT INTO Tweet(tweet_id_str,created_at, text, retweet_count,favorite_count, 
                                             user_id_str, user_name, user_screen_name, user_location)
@@ -46,5 +48,5 @@ class TwitterStreamer:
         connection.commit()
         connection.close()
 
-    print("finished...")
+        print("finished...")
 
