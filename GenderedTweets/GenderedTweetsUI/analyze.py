@@ -1,11 +1,8 @@
-import tweepy
-import config
-import psycopg2
-from datetime import date, timedelta
-from decouple import config as db_config
 import re
+
 import pandas as pd
-import numpy as np
+import psycopg2
+from decouple import config as db_config
 
 
 class Text:
@@ -19,10 +16,10 @@ class Text:
         return False
 
 
-class AnalyzeTweets:
+class GetTweets:
 
-    @staticmethod
-    def get_tweets():
+    @property
+    def get_tweets(self):
         connection = psycopg2.connect(database='genderedtweetsdb',
                                       user=db_config('DB_USER'),
                                       password=db_config('DB_PASS'),
@@ -37,7 +34,11 @@ class AnalyzeTweets:
 
         return results
 
-    def process_results(self, results):
+
+class AnalyzeTweets:
+
+    def process_results(self):
+        results = GetTweets().get_tweets
         id_list = [tweet[0] for tweet in results]
         data_set = pd.DataFrame(id_list, columns=["id"])
         data_set["text"] = [tweet[3] for tweet in results]
@@ -59,44 +60,37 @@ class AnalyzeTweets:
 
         return data_set
 
-    def count_keywords(self, result):
-        data_set = self.process_results(result)
+    def count_keywords(self):
+        data_set = self.process_results()
 
         tweets_by_sexist_keywords = {
-            'bitch': data_set['bitch'].value_counts()[True],
-            'skinny': data_set['skinny'].value_counts()[True],
-            'whore': data_set['whore'].value_counts()[True],
-            'slut': data_set['slut'].value_counts()[True],
-            'hoe': data_set['hoe'].value_counts()[True],
-            'pussy': data_set['pussy'].value_counts()[True],
-            'nipple': data_set['nipple'].value_counts()[True],
-            'ass': data_set['ass'].value_counts()[True],
-            'boobs': data_set['boobs'].value_counts()[True],
-            'motherfucker': data_set['motherfucker'].value_counts()[True]
+            'bitch': int(data_set['bitch'].value_counts()[True]),
+            'skinny': int(data_set['skinny'].value_counts()[True]),
+            'whore': int(data_set['whore'].value_counts()[True]),
+            'slut': int(data_set['slut'].value_counts()[True]),
+            'hoe': int(data_set['hoe'].value_counts()[True]),
+            'pussy': int(data_set['pussy'].value_counts()[True]),
+            'nipple': int(data_set['nipple'].value_counts()[True]),
+            'ass': int(data_set['ass'].value_counts()[True]),
+            'boobs': int(data_set['boobs'].value_counts()[True]),
+            'motherfucker': int(data_set['motherfucker'].value_counts()[True])
         }
 
         return tweets_by_sexist_keywords
 
-    def graph_list(self, result):
-        print("sssss")
-        tweets_by_sexist_keywords = self.count_keywords(result)
-        print(tweets_by_sexist_keywords)
+    def tweet_count(self):
+        tweets_by_sexist_keywords = self.count_keywords()
         dict_val = tweets_by_sexist_keywords.values()
         sorted_tweets = sorted(dict_val, reverse=True)
-        print(sorted_tweets[:5])
         return sorted_tweets[:5]
 
-    def label_list(self, result):
-        tweets_by_sexist_keywords = self.count_keywords(result)
+    def tweet_label(self):
+        tweets_by_sexist_keywords = self.count_keywords()
         label_list = []
 
-        for i in AnalyzeTweets.graph_list():
+        for i in AnalyzeTweets.tweet_count(self):
             for key, val in tweets_by_sexist_keywords.items():
                 if i == val:
                     label_list.append(key)
 
         return label_list
-
-
-
-

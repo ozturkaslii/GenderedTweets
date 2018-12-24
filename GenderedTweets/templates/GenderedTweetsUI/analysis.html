@@ -1,5 +1,9 @@
 {% extends 'GenderedTweetsUI/base.html' %}
 {% block title %}Analyze{% endblock %}
 {% block body %}
-    <p>Analyze tweets</p>
+    <div class="col-md-6">
+        {% block bar %}
+            {% include "GenderedTweetsUI/pieChart.html" %}
+        {% endblock %}
+    </div>
 {% endblock %}
