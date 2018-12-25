@@ -69,11 +69,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GenderedTweets/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="20" column="63" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
+            <state relative-caret-position="242">
+              <caret line="124" column="23" lean-forward="true" selection-start-line="124" selection-start-column="23" selection-end-line="124" selection-end-column="23" />
               <folding>
                 <element signature="e#315#324#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.env">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="11" selection-start-column="11" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -156,8 +165,8 @@
         <option value="$PROJECT_DIR$/GenderedTweetsUI/views.py" />
         <option value="$PROJECT_DIR$/GenderedTweetsUI/analyze.py" />
         <option value="$PROJECT_DIR$/templates/GenderedTweetsUI/index.html" />
-        <option value="$PROJECT_DIR$/GenderedTweets/settings.py" />
         <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/GenderedTweets/settings.py" />
       </list>
     </option>
   </component>
@@ -337,12 +346,12 @@
       <workItem from="1545660844284" duration="1485000" />
       <workItem from="1545662353281" duration="29032000" />
       <workItem from="1545737855697" duration="5458000" />
-      <workItem from="1545755108363" duration="57000" />
+      <workItem from="1545755108363" duration="805000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123125000" />
+    <option name="totallyTimeSpent" value="123873000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -367,7 +376,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3298969" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.46833578" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3755523" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="manage.py@GenderedTweets" order="9" weight="0.45238096" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
@@ -547,15 +556,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
+        <state>
+          <caret column="11" selection-start-column="11" selection-end-column="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GenderedTweets/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="20" column="63" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
+        <state relative-caret-position="242">
+          <caret line="124" column="23" lean-forward="true" selection-start-line="124" selection-start-column="23" selection-end-line="124" selection-end-column="23" />
           <folding>
             <element signature="e#315#324#0" expanded="true" />
           </folding>
