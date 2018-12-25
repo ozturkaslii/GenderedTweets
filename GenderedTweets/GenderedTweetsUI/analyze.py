@@ -1,8 +1,8 @@
 import re
-
 import pandas as pd
 import psycopg2
 from decouple import config as db_config
+from textblob import TextBlob
 
 
 class Text:
@@ -13,7 +13,8 @@ class Text:
         match = re.search(word, text)
         if match:
             return True
-        return False
+        else:
+            return False
 
 
 class GetTweets:
@@ -35,15 +36,22 @@ class GetTweets:
         return results
 
 
-class AnalyzeTweets:
+class TweetsToDataSet:
 
-    def process_results(self):
+    @property
+    def tweets_to_data_set(self):
         results = GetTweets().get_tweets
         id_list = [tweet[0] for tweet in results]
         data_set = pd.DataFrame(id_list, columns=["id"])
         data_set["text"] = [tweet[3] for tweet in results]
 
-        # print(data_set)
+        return data_set
+
+
+class AnalyzeTweets:
+
+    def process_results(self):
+        data_set = TweetsToDataSet().tweets_to_data_set
 
         data_set['woman'] = data_set['text'].apply(lambda tweet: Text.word_in_text('woman', tweet))
         data_set['man'] = data_set['text'].apply(lambda tweet: Text.word_in_text('man', tweet))
@@ -94,3 +102,80 @@ class AnalyzeTweets:
                     label_list.append(key)
 
         return label_list
+
+
+class SentimentAnalysis:
+
+    def clean_tweet(self, tweets):
+        return ' '.join(re.sub("(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)", " ", tweets).split())
+
+    def analyze_sentiment(self, tweets):
+        analysis = TextBlob(self.clean_tweet(tweets))
+
+        if analysis.sentiment.polarity > 0:
+            return 1
+        elif analysis.sentiment.polarity < 0:
+            return -1
+        else:
+            return 0
+
+    def woman_sentiment(self, tweets):
+        data_set = TweetsToDataSet().tweets_to_data_set
+        data_set['woman'] = data_set['text'].apply(lambda tweet: Text.word_in_text('woman', tweet))
+        data_set['sentiment'] = [self.analyze_sentiment(tweet[3]) for tweet in tweets]
+
+        count_pos = 0
+
+        for key, val in data_set['woman'].items():
+            if val:
+                if data_set['sentiment'][key] == 1:
+                    count_pos += 1
+
+        return count_pos
+
+    def man_sentiment(self, tweets):
+        data_set = TweetsToDataSet().tweets_to_data_set
+        data_set['man'] = data_set['text'].apply(lambda tweet: Text.word_in_text('man', tweet))
+        data_set['sentiment'] = [self.analyze_sentiment(tweet[3]) for tweet in tweets]
+
+        count_pos = 0
+
+        for key, val in data_set['man'].items():
+            if val:
+                if data_set['sentiment'][key] == 1:
+                    count_pos += 1
+
+        return count_pos
+
+    @property
+    def total_woman_man(self):
+        data_set = TweetsToDataSet().tweets_to_data_set
+        data_set['woman'] = data_set['text'].apply(lambda tweet: Text.word_in_text('woman', tweet))
+        data_set['man'] = data_set['text'].apply(lambda tweet: Text.word_in_text('man', tweet))
+        man = int(data_set['man'].value_counts()[True])
+        woman = int(data_set['woman'].value_counts()[True])
+        total = woman + man
+
+        return total
+
+    def calculate_woman(self, tweets):
+        total = self.total_woman_man
+        woman_positive = self.woman_sentiment(tweets)
+        calc = (woman_positive/total)*100
+
+        return calc
+
+    def calculate_man(self, tweets):
+        total = self.total_woman_man
+        man_positive = self.man_sentiment(tweets)
+        calc = (man_positive / total) * 100
+
+        return calc
+
+    def update_data_set(self, tweets):
+        data_set = TweetsToDataSet().tweets_to_data_set
+        import pdb
+        # pdb.set_trace()
+        data_set['sentiment'] = [self.analyze_sentiment(tweet[3]) for tweet in tweets]
+
+        return data_set

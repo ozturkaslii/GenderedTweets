@@ -2,7 +2,7 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from django.views import generic
 
-from GenderedTweetsUI.analyze import AnalyzeTweets
+from GenderedTweetsUI.analyze import AnalyzeTweets, SentimentAnalysis, GetTweets
 
 
 class IndexView(generic.ListView):
@@ -25,7 +25,11 @@ class AnalysisView(generic.ListView):
         return render(request, 'GenderedTweetsUI/analysis.html')
 
     def get_data(request, *args, **kwargs):
+        all_tweets = GetTweets()
+        tweet = SentimentAnalysis()
+        woman = tweet.calculate_woman(all_tweets.get_tweets)
+        man = tweet.calculate_man(all_tweets.get_tweets)
         labels = ['woman', 'man']
-        default_items = [20, 10]
+        default_items = [woman, man]
         data = dict(labels=labels, default=default_items)
         return JsonResponse(data)
