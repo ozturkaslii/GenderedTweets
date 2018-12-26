@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="339e267b-2831-4c01-ae89-f130297f745f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/GenderedTweets/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/GenderedTweets/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GenderedTweetsUI/analyze.py" beforeDir="false" afterPath="$PROJECT_DIR$/GenderedTweetsUI/analyze.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,7 +22,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GenderedTweetsUI/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
+            <state relative-caret-position="174">
               <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
@@ -32,11 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GenderedTweets/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="80" column="33" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="33" />
+            <state relative-caret-position="102">
+              <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
               <folding>
                 <element signature="e#315#324#0" expanded="true" />
               </folding>
@@ -47,13 +46,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="7" selection-start-line="2" selection-end-line="2" selection-end-column="7" />
+            <state relative-caret-position="102">
+              <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GenderedTweetsUI/analyze.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="319">
@@ -145,8 +144,8 @@
         <option value="$PROJECT_DIR$/GenderedTweets/wsgi.py" />
         <option value="$PROJECT_DIR$/GenderedTweets/local_settings.py" />
         <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/GenderedTweets/settings.py" />
         <option value="$PROJECT_DIR$/GenderedTweetsUI/analyze.py" />
+        <option value="$PROJECT_DIR$/GenderedTweets/settings.py" />
       </list>
     </option>
   </component>
@@ -322,12 +321,12 @@
       <workItem from="1545737855697" duration="5458000" />
       <workItem from="1545755108363" duration="3066000" />
       <workItem from="1545842952851" duration="2808000" />
-      <workItem from="1545854361225" duration="8555000" />
+      <workItem from="1545854361225" duration="8887000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137497000" />
+    <option name="totallyTimeSpent" value="137829000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -352,7 +351,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3298969" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.15022092" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.42709866" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="manage.py@GenderedTweets" order="9" weight="0.45238096" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
@@ -544,9 +543,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/GenderedTweetsUI/analyze.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="30" column="42" lean-forward="true" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/GenderedTweetsUI/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state relative-caret-position="174">
           <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
@@ -554,29 +563,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GenderedTweets/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="80" column="33" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="33" />
-          <folding>
-            <element signature="e#315#324#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="7" selection-start-line="2" selection-end-line="2" selection-end-column="7" />
+        <state relative-caret-position="102">
+          <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GenderedTweetsUI/analyze.py">
+    <entry file="file://$PROJECT_DIR$/GenderedTweets/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="30" column="42" lean-forward="true" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
+        <state relative-caret-position="102">
+          <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#315#324#0" expanded="true" />
           </folding>
         </state>
       </provider>
