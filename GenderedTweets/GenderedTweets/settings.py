@@ -78,11 +78,11 @@ WSGI_APPLICATION = 'GenderedTweets.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'genderedtweetsdb',
+        'NAME': 'd1st7ev562cmkq',
         'USER': config('DB_USER'),
         'PASSWORD': config('DB_PASS'),
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
     }
 }
 
