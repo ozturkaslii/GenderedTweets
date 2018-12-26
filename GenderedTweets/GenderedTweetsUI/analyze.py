@@ -21,11 +21,7 @@ class GetTweets:
 
     @property
     def get_tweets(self):
-        connection = psycopg2.connect(database=db_config('DB_NAME'),
-                                      user=db_config('DB_USER'),
-                                      password=db_config('DB_PASS'),
-                                      host=db_config('DB_HOST'),
-                                      port=db_config('DB_PORT'))
+        connection = psycopg2.connect(db_config('DATABASE_URL'))
         cur = connection.cursor()
 
         cur.execute("SELECT * FROM tweet")
