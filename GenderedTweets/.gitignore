@@ -11,3 +11,5 @@ __pycache__/
 lib/
 lib64/
 config.py
+local_settings.py
+*.pyc
