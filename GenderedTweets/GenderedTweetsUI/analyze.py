@@ -21,7 +21,7 @@ class GetTweets:
 
     @property
     def get_tweets(self):
-        connection = psycopg2.connect(database='genderedtweetsdb',
+        connection = psycopg2.connect(database=db_config('DB_NAME'),
                                       user=db_config('DB_USER'),
                                       password=db_config('DB_PASS'),
                                       host=db_config('DB_HOST'),
