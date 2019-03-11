@@ -3,6 +3,4 @@ This project is about gendered discourse on Twitter. With Twitter API, user can 
 
 Django 2.1.4, Python 3.6.5 and PostgreSQL 11.1 are used in this project.
 
-You can find the project with the following link: https://genderedtweets.herokuapp.com/
-
 Boğaziçi University SWE 573 Software Development Practice by Suzan Üsküdarlı
