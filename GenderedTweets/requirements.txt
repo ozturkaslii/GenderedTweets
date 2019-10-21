@@ -5,7 +5,7 @@ dj-database-url==0.5.0
 Django==2.1.4
 gunicorn==19.9.0
 idna==2.8
-nltk==3.4
+nltk==3.4.5
 numpy==1.15.4
 oauthlib==2.1.0
 pandas==0.23.4
